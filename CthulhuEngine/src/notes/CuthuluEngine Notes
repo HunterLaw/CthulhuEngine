@@ -1,0 +1,36 @@
+***Notes - Cuthulu Engine v0.1.7.20.16 ***
+
+***BaseShaders***
+-Complete and compatible
+
+***Graphics***
+-Complete and compatible
+
+***Input***
+-Basic but works
+
+***Maths***
+-Complete and compatible
+
+***Media***
+-Complete and compatible
+
+***Movement***
+-Complete and compatible
+
+***Objects***
+-Complete and compatible
+-Lighting needs to be worked on. Objects not being displayed correctly
+
+***Paths***
+-Copy and pasted but nothing converted
+
+***UI***
+-Classes are compatible 
+-Need to transfer some classes from HyrdaEngine
+-Fixed games from updating too much right at start up
+-Made HorizontalBG compatible with new engine
+-Need the rest of the bgs
+
+***Utils***
+-Complete and compatible
