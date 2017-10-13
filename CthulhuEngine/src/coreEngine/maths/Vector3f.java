@@ -40,6 +40,13 @@ public class Vector3f {
 		return new Vector3f(x,y,z);
 	}
 	
+	public boolean equals(Vector3f pos)
+	{
+		boolean x = Math.abs(this.x-pos.x) <=0.001f;
+		boolean y = Math.abs(this.y-pos.y) <= 0.001f;
+		return x&&y;
+	}
+	
 	public String toString()
 	{
 		String rc;

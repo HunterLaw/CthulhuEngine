@@ -115,18 +115,36 @@ public class Renderer2D implements Serializable{
 		{
 			for(NonTexturedObject2d object: objects)
 			{
+				
+				if(cam.isObjectInScreen(object))
+				{
+//					if(object instanceof ScrollingMap)
+//					{
+//						System.out.println("Map");
+//					}
+					if(object.isLightEnabled())
+					{
+						Light.setLightsToShader(object.shader());
+					}
+					object.setModelMatrix();
+					object.setViewMatrix(vw);
+					object.render();
+				}
+//				if(!cam.isObjectInScreen(object) && !(object instanceof Door))
+//				{
+//					((Wall)object).
+//				}
 //				System.out.println(object.toString());
 //				object.setModelMatrix();
-				object.setViewMatrix(vw);
-				if(object.isLightEnabled())
-				{
-					Light.setLightsToShader(object.shader());
-				}
-				object.render();
+				
 			}
 		}
 	}
 	
+	public boolean isTypeOfBackground(NonTexturedObject2d object)
+	{
+		return object instanceof ScrollingMap || object instanceof Background || object instanceof HorizontalScrollingBG || object instanceof VerticalScrollingBG;
+	}
 	
 	public ArrayList<NonTexturedObject2d> getObjects()
 	{

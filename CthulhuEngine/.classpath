@@ -6,7 +6,7 @@
 			<accessrule kind="accessible" pattern="javafx/**"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hunter/Desktop/Libs/LWJGL/jar/lwjgl.jar" sourcepath="C:/Users/Hunter/Desktop/Libs/LWJGL/src.zip">
+	<classpathentry kind="lib" path="C:/Users/rikup/Desktop/workspaces/Libs/LWJGL/jar/lwjgl.jar" sourcepath="C:/Users/Hunter/Desktop/Libs/LWJGL/src.zip">
 		<attributes>
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Hunter/Desktop/Libs/LWJGL/native"/>
 		</attributes>

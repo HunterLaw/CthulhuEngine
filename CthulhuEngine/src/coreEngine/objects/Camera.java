@@ -1,9 +1,9 @@
 package coreEngine.objects;
 
-import coreEngine.input.Input;
 import coreEngine.maths.Matrix4f;
 import coreEngine.maths.Vector3f;
 import coreEngine.ui.Screen;
+import coreEngine.ui.ScrollingMap;
 
 public class Camera
 {
@@ -24,6 +24,26 @@ public class Camera
 		setLimits();
 	}
 
+	public boolean isObjectInScreen(NonTexturedObject2d object)
+	{
+//		Rectangle t;
+		boolean l = object.getRight() > position.x+Screen.left && object.getRight() < position.x+Screen.right;
+		boolean r = object.getLeft() > position.x+Screen.left && object.getLeft() < position.x+Screen.right;
+		boolean t = object.getBottom() > position.y+Screen.bottom && object.getBottom() < position.y+Screen.top;
+		boolean b = object.getTop() > position.y+Screen.bottom && object.getTop() < position.y+Screen.top;
+		
+		boolean ls = position.x+Screen.right > object.getLeft() && position.x+Screen.right < object.getRight();
+		boolean rs = position.x+Screen.left > object.getLeft() && position.x+Screen.left < object.getRight();
+		boolean ts = position.y+Screen.bottom > object.getBottom() && position.y+Screen.bottom < object.getTop();
+		boolean bs = position.y+Screen.top > object.getBottom() && position.y+Screen.top < object.getTop();
+//		if(object instanceof ScrollingMap)
+//		{
+//			System.out.println(l + ","+r + ","+t + ","+b + ",");
+//		}
+		return (((l||r) && (t||b)) /*|| ((ls||rs) && (ts||bs))*/);
+//		return (object.getRight() > position.x+Screen.left || object.getLeft() < position.x+Screen.right) && (object.getBottom() < position.y+Screen.top || object.)
+	}
+	
 	public void setLimits(float[] lim)
 	{
 		limits = lim;
@@ -137,7 +157,11 @@ public class Camera
 	{
 		return new Vector3f(limits[1]/2f,limits[3]/2f,0);
 	} 
-	
+
+	public Vector3f getPosition()
+	{
+		return position;
+	}
 	
 	public Vector3f getNegativeCoords()
 	{

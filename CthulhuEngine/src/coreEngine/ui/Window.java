@@ -37,6 +37,7 @@ public class Window
 		glfwDefaultWindowHints();
 		glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
 		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+		glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_TRUE);
 		window = glfwCreateWindow(size.width,size.height,title,NULL,NULL);
 		if(window == NULL)
 		{
@@ -46,7 +47,6 @@ public class Window
 		glfwSetWindowPos(window,(mode.width()-size.width)/2,(mode.height()-size.height)/2);
 		glfwSetKeyCallback(window, new Input());
 		glfwMakeContextCurrent(window);
-		glfwShowWindow(window);
 		GL.createCapabilities();
 		glEnable(GL_DEPTH_TEST);
 		glActiveTexture(GL_TEXTURE1);
@@ -54,6 +54,11 @@ public class Window
 		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 		glClearColor(0f,0f,0f,0f);
 		
+	}
+
+	public void showWindow()
+	{
+		glfwShowWindow(window);
 	}
 	
 	public void setClearColor(Vector4f color)
